@@ -25,7 +25,7 @@ public class IntroductionController : MonoBehaviour
             firstScene.SetActive(false);
             secondScene.SetActive(true);
         }
-        if(time>3f){
+        if(time>5f){
             firstScene.SetActive(false);
             secondScene.SetActive(false);
             menu.SetActive(true);
