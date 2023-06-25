@@ -37,5 +37,9 @@ public class IntroductionController : MonoBehaviour
     public void StartGame(){
         SceneManager.LoadScene("JorgeLands");
     }
+
+    public void ExitGame(){
+        Application.Quit();
+    }
 }
 
