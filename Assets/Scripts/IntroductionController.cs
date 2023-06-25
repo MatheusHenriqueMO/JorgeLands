@@ -21,11 +21,11 @@ public class IntroductionController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(time>=2f && time<=3f){
+        if(time>=5f && time<=8f){
             firstScene.SetActive(false);
             secondScene.SetActive(true);
         }
-        if(time>5f){
+        if(time>8f){
             firstScene.SetActive(false);
             secondScene.SetActive(false);
             menu.SetActive(true);
