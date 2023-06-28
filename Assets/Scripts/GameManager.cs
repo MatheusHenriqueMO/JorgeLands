@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
+    public ItemManager itemManager;
 
     private void Awake()
     {
@@ -16,5 +17,8 @@ public class GameManager : MonoBehaviour
         {
             instance = this;
         }
+        DontDestroyOnLoad(this.gameObject);
+
+        itemManager = GetComponent<ItemManager>();
     }
 }
