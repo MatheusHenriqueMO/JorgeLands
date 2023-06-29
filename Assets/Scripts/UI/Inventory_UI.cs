@@ -59,17 +59,18 @@ public class Inventory_UI : MonoBehaviour
             }
         }
     }
-    public void Remove(int slotID)
+    public void Remove()
     {
         Collectable itemToDrop = GameManager.instance.itemManager.GetItemByType(
-            player.inventory.slots[slotID].type);
+            player.inventory.slots[draggedSlot.slotID].type);
 
         if(itemToDrop != null)
         {
             player.DropItem(itemToDrop);
-            player.inventory.Remove(slotID);
+            player.inventory.Remove(draggedSlot.slotID);
             Refresh();
         }
+        draggedSlot = null;
     }
     public void SlotBeginBrag(Slot_UI slot)
     {
@@ -91,7 +92,9 @@ public class Inventory_UI : MonoBehaviour
     }
     public void SlotEndDrag()
     {
-        Debug.Log("Done Dragging: " + draggedSlot.name);
+        Destroy(draggedIcon.gameObject);
+        // draggedIcon = null; 
+        // Debug.Log("Done Dragging: " + draggedSlot.name);
     }
 
     public void SlotDrop(Slot_UI slot)
