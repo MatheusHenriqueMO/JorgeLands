@@ -67775,8 +67775,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6861c264fa0887a4591a319516774644, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   playerAnimator: {fileID: 1213305205}
-  speed: 2.5
 --- !u!50 &1213305209
 Rigidbody2D:
   serializedVersion: 4
@@ -67836,6 +67836,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0078c2ea6804c94fbd7789c91b0071e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  entity:
+    name: Jorginho
+    currentHealth: 100
+    maxHealth: 100
+    currentMana: 100
+    maxMana: 100
+    currentStamina: 100
+    maxStamina: 100
+    strength: 1
+    resistence: 1
+    damage: 1
+    defense: 1
+    speed: 2
+  health: {fileID: 101136224}
+  mana: {fileID: 956177588}
+  stamina: {fileID: 941665210}
+  exp: {fileID: 1144858378}
   inventory:
     slots: []
 --- !u!1001 &1215002499
