@@ -14,6 +14,7 @@ public class Inventory_UI : MonoBehaviour
     [SerializeField] private Canvas canvas; 
     private Image draggedIcon;
     private Slot_UI draggedSlot;
+    private bool dragSingle;
 
     private void Awake()
     {
@@ -28,6 +29,14 @@ public class Inventory_UI : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             ToggleInventory();
+        }
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            dragSingle = true;
+        }
+        else
+        {
+            dragSingle = false;
         }
     }
     public void ToggleInventory()
@@ -66,8 +75,17 @@ public class Inventory_UI : MonoBehaviour
 
         if(itemToDrop != null)
         {
-            player.DropItem(itemToDrop);
-            player.inventory.Remove(draggedSlot.slotID);
+            if(dragSingle)
+            {
+                player.DropItem(itemToDrop);
+                player.inventory.Remove(draggedSlot.slotID);
+            }
+            else
+            {
+                player.DropItem(itemToDrop, player.inventory.slots[draggedSlot.slotID].count);
+                player.inventory.Remove(draggedSlot.slotID, player.inventory.slots[draggedSlot.slotID].count);
+            }
+            
             Refresh();
         }
         draggedSlot = null;
