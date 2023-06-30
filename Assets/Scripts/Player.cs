@@ -84,18 +84,18 @@ public class Player : MonoBehaviour
     {
         inventory = new Inventory(12);
     }
-    public void DropItem(Collectable item)
+    public void DropItem(Item item)
     {
         Vector2 spawnLocation = transform.position;
 
-        Vector2 spawnOffset = UnityEngine.Random.insideUnitCircle * 0.6f;
+        Vector2 spawnOffset = UnityEngine.Random.insideUnitCircle * 1.2f;
 
-        Collectable droppeditem = Instantiate(item, spawnLocation + spawnOffset, Quaternion.identity);
+        Item droppeditem = Instantiate(item, spawnLocation + spawnOffset, Quaternion.identity);
 
-        droppeditem.rb2d.AddForce(spawnOffset * 0.5f, ForceMode2D.Impulse);
+        droppeditem.rb2d.AddForce(spawnOffset * 0.1f, ForceMode2D.Impulse);
     }
 
-    public void DropItem(Collectable item, int numToDrop)
+    public void DropItem(Item item, int numToDrop)
     {
         for (int i = 0; i < numToDrop; i++)
         {

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4256378728841023812}
   - component: {fileID: 7481971702432476267}
   - component: {fileID: 5773885303446720904}
+  - component: {fileID: 2015049549094376771}
   m_Layer: 0
   m_Name: AxCollectable
   m_TagString: Untagged
@@ -195,9 +196,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe274b93a7c3976478e5c83b42b4bcc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 1
-  icon: {fileID: 2108484054, guid: 4293f280d05b7d1459a50472bd4a79c9, type: 3}
-  rb2d: {fileID: 0}
 --- !u!50 &5773885303446720904
 Rigidbody2D:
   serializedVersion: 4
@@ -219,3 +217,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &2015049549094376771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5319509644917400268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99bfdc6af8002a24e9cde4325ec542d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: {fileID: 11400000, guid: 3484ed69ace7b884b9c784f270c3863e, type: 2}
+  rb2d: {fileID: 0}
