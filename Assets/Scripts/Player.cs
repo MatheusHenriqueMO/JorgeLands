@@ -28,7 +28,6 @@ public class Player : MonoBehaviour
     public Slider stamina;
     public Slider exp;
     public Inventory inventory;
-    public Inventory toolbar;
 
     void Start()
     {
@@ -84,7 +83,6 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         inventory = new Inventory(12);
-        toolbar = new Inventory(9);
     }
     public void DropItem(Item item)
     {
