@@ -64722,7 +64722,6 @@ GameObject:
   m_Component:
   - component: {fileID: 675559718}
   - component: {fileID: 675559719}
-  - component: {fileID: 675559720}
   m_Layer: 5
   m_Name: Toolbar
   m_TagString: Untagged
@@ -64770,28 +64769,6 @@ MonoBehaviour:
   - {fileID: 1296855194}
   - {fileID: 1772103048}
   - {fileID: 282852129}
---- !u!114 &675559720
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 675559717}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a2db85573a19894d983d91284ebde94, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inventoryPanel: {fileID: 260204246}
-  player: {fileID: 1213305211}
-  slots:
-  - {fileID: 1454238773}
-  - {fileID: 72490719}
-  - {fileID: 510430705}
-  - {fileID: 1296855194}
-  - {fileID: 1772103048}
-  - {fileID: 282852129}
-  canvas: {fileID: 0}
 --- !u!1 &696892631
 GameObject:
   m_ObjectHideFlags: 0

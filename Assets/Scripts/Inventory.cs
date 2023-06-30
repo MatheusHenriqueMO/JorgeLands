@@ -19,20 +19,9 @@ public class Inventory
             maxAllowed = 2;
         }
         
-        public bool IsEmpty
+        public bool CanAddItem()
         {
-            get
-            {
-                if(itemName == "" && count == 0)
-                {
-                    return true; 
-                }
-                    return false;
-            }
-        }
-        public bool CanAddItem(string itemName)
-        {
-            if (this.itemName == itemName && count < maxAllowed)
+            if (count < maxAllowed)
             {
                 return true;
             }
@@ -44,14 +33,6 @@ public class Inventory
             this.itemName = item.data.itemName;
             this.icon = item.data.icon;
             count++;
-        }
-
-        public void AddItem(string itemName, Sprite icon, int maxAllowed)
-        {
-            this.itemName = itemName;
-            this.icon = icon;
-            count++;
-            this.maxAllowed = maxAllowed;
         }
 
         public void RemoveItem(){
@@ -82,7 +63,7 @@ public class Inventory
     {
         foreach (Slot slot in slots)
         {
-            if (slot.itemName == item.data.itemName && slot.CanAddItem(item.data.name))
+            if (slot.itemName == item.data.itemName && slot.CanAddItem())
             {
                 slot.AddItem(item);
                 return;
@@ -111,18 +92,6 @@ public class Inventory
             {
                 Remove(index);
             }
-        }
-    }
-
-    public void MoveSlot(int fromIndex, int toIndex)
-    {
-        Slot fromSlot = slots[fromIndex];
-        Slot toSlot = slots[toIndex];
-
-        if(toSlot.IsEmpty || toSlot.CanAddItem(fromSlot.itemName))
-        {
-            toSlot.AddItem(fromSlot.itemName, fromSlot.icon, fromSlot.maxAllowed);
-            fromSlot.RemoveItem();
         }
     }
 }
