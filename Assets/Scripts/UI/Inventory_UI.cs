@@ -22,7 +22,9 @@ public class Inventory_UI : MonoBehaviour
     }
     void Start()
     {
+        SetupSlots();
         inventoryPanel.SetActive(false);
+        Refresh();
     }
     void Update()
     {
@@ -41,14 +43,17 @@ public class Inventory_UI : MonoBehaviour
     }
     public void ToggleInventory()
     {
-        if (!inventoryPanel.activeSelf)
+        if(inventoryPanel != null)
         {
-            inventoryPanel.SetActive(true);
-            Refresh();
-        }
-        else
-        {
-            inventoryPanel.SetActive(false);
+            if (!inventoryPanel.activeSelf)
+            {
+                inventoryPanel.SetActive(true);
+                Refresh();
+            }
+            else
+            {
+                inventoryPanel.SetActive(false);
+            }
         }
     }
     void Refresh()
@@ -60,6 +65,20 @@ public class Inventory_UI : MonoBehaviour
                 if (player.inventory.slots[i].itemName != "")
                 {
                     slots[i].SetItem(player.inventory.slots[i]);
+                }
+                else
+                {
+                    slots[i].SetEmpty();
+                }
+            }
+        }
+        else if (slots.Count == player.toolbar.slots.Count)
+        {
+            for (int i = 0; i < slots.Count; i++)
+            {
+                if (player.toolbar.slots[i].itemName != "")
+                {
+                    slots[i].SetItem(player.toolbar.slots[i]);
                 }
                 else
                 {
@@ -117,7 +136,8 @@ public class Inventory_UI : MonoBehaviour
 
     public void SlotDrop(Slot_UI slot)
     {
-        Debug.Log("Dropped " + draggedSlot.name + " on " + slot.name);
+       player.inventory.MoveSlot(draggedSlot.slotID, slot.slotID);
+       Refresh();
     }
 
     private void MovetoMousePosition(GameObject toMove)
@@ -131,6 +151,15 @@ public class Inventory_UI : MonoBehaviour
 
             toMove.transform.position = canvas.transform.TransformPoint(position);
 
+        }
+    }
+    void SetupSlots()
+    {
+        int counter = 0;
+        foreach(Slot_UI slot in slots)
+        {
+            slot.slotID = counter;
+            counter ++;
         }
     }
 }
