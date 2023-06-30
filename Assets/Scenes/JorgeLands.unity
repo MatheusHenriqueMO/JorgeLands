@@ -66814,7 +66814,6 @@ GameObject:
   m_Component:
   - component: {fileID: 910499319}
   - component: {fileID: 910499321}
-  - component: {fileID: 910499320}
   m_Layer: 3
   m_Name: Map Camera
   m_TagString: Untagged
@@ -66837,14 +66836,6 @@ Transform:
   m_Father: {fileID: 1555238745}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!81 &910499320
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 910499318}
-  m_Enabled: 1
 --- !u!20 &910499321
 Camera:
   m_ObjectHideFlags: 0
@@ -69628,6 +69619,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   entity:
     name: Jorginho
+    level: 1
     currentHealth: 100
     maxHealth: 100
     currentMana: 100
@@ -69635,10 +69627,19 @@ MonoBehaviour:
     currentStamina: 100
     maxStamina: 100
     strength: 1
-    resistence: 1
+    resistence: 3
+    intelligence: 2
+    willPower: 2
     damage: 1
     defense: 1
     speed: 2
+  regenHPEnable: 1
+  regenHPTime: 5
+  regenHPValue: 5
+  regenMPEnable: 1
+  regenMPTime: 10
+  regenMPValue: 5
+  manager: {fileID: 1337724529}
   health: {fileID: 101136224}
   mana: {fileID: 956177588}
   stamina: {fileID: 941665210}
