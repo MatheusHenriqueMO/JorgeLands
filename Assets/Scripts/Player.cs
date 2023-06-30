@@ -41,9 +41,6 @@ public class Player : MonoBehaviour
         entity.maxMana = manager.CalculateMana(this.entity);
         entity.maxStamina = manager.CalculateStamina(this.entity);
 
-        Int32 dmg = manager.CalculateDamage(this.entity, 10); // usado no player
-        Int32 def = manager.CalculateDefence(this.entity, 5); // usado no inimigo
-
         entity.currentHealth = entity.maxHealth;
         entity.currentMana = entity.maxMana;
         entity.currentStamina = entity.maxStamina;
@@ -71,13 +68,6 @@ public class Player : MonoBehaviour
         mana.value = entity.currentMana;
         stamina.value = entity.currentStamina;
 
-        //Tirando vida TESTE (RETIRAR DEPOIS)
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            entity.currentHealth -= 10;
-            entity.currentMana -= 5;
-            entity.currentStamina -= 5;
-        }
     }
 
     private void Awake()

@@ -35667,6 +35667,39 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
+--- !u!1 &501445241
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 501445242}
+  m_Layer: 0
+  m_Name: SkeletonWaypoints
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &501445242
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 501445241}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.1817694, y: 1.236286, z: -8.492739}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1243391163}
+  - {fileID: 1184554760}
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &510430704 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3735022018741090488, guid: 22f6a1156b64fe740afc151248011cbb, type: 3}
@@ -69273,6 +69306,37 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3735022018741090488, guid: 8f6abc263611a68498d1ebe04347dffa, type: 3}
   m_PrefabInstance: {fileID: 1669135141}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1184554759
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1184554760}
+  m_Layer: 0
+  m_Name: Waypoint2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1184554760
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1184554759}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.18, y: -0.36, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 501445242}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1213305207 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7033995047038526849, guid: e151e370151f3924ba7de51a234ac77d, type: 3}
@@ -69289,6 +69353,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0078c2ea6804c94fbd7789c91b0071e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1243391162
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1243391163}
+  m_Layer: 0
+  m_Name: Waypoint1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1243391163
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1243391162}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5.39, y: -0.36, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 501445242}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &1296855193 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3735022018741090488, guid: 22f6a1156b64fe740afc151248011cbb, type: 3}
@@ -107720,17 +107815,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2034739870, guid: 2e97a7caef9aa4a4a978899634f7a06d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 955742680512379242, guid: 2e97a7caef9aa4a4a978899634f7a06d, type: 3}
       propertyPath: m_RootOrder
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 955742680512379242, guid: 2e97a7caef9aa4a4a978899634f7a06d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.95
+      value: 7.57
       objectReference: {fileID: 0}
     - target: {fileID: 955742680512379242, guid: 2e97a7caef9aa4a4a978899634f7a06d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1.08
       objectReference: {fileID: 0}
     - target: {fileID: 955742680512379242, guid: 2e97a7caef9aa4a4a978899634f7a06d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -107768,6 +107867,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Skeleton
       objectReference: {fileID: 0}
+    - target: {fileID: 8869291389704122232, guid: 2e97a7caef9aa4a4a978899634f7a06d, type: 3}
+      propertyPath: manager
+      value: 
+      objectReference: {fileID: 1337724529}
+    - target: {fileID: 8869291389704122232, guid: 2e97a7caef9aa4a4a978899634f7a06d, type: 3}
+      propertyPath: waypointList.Array.data[0]
+      value: 
+      objectReference: {fileID: 1243391163}
+    - target: {fileID: 8869291389704122232, guid: 2e97a7caef9aa4a4a978899634f7a06d, type: 3}
+      propertyPath: waypointList.Array.data[1]
+      value: 
+      objectReference: {fileID: 1184554760}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e97a7caef9aa4a4a978899634f7a06d, type: 3}
 --- !u!1001 &3735022018937497354
@@ -108017,14 +108128,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 7033995046399340305, guid: e151e370151f3924ba7de51a234ac77d, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7033995046399340305, guid: e151e370151f3924ba7de51a234ac77d, type: 3}
-      propertyPath: m_Color.r
-      value: 0.2816975
-      objectReference: {fileID: 0}
     - target: {fileID: 7033995047038526849, guid: e151e370151f3924ba7de51a234ac77d, type: 3}
       propertyPath: m_RootOrder
       value: 1
