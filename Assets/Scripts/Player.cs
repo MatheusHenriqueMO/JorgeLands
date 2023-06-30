@@ -15,6 +15,9 @@ public class Player : MonoBehaviour
     public bool regenMPEnable = true;
     public float regenMPTime = 10f;
     public int regenMPValue = 5;
+    public bool regenSTMEnable = true;
+    public float regenSTMTime = 5f;
+    public int regenSTMValue = 5;
 
     [Header("Game Manager")]
     public GameManager manager;
@@ -59,6 +62,7 @@ public class Player : MonoBehaviour
         //Start Regeneration
         StartCoroutine(RegenHealth());
         StartCoroutine(RegenMana());
+        StartCoroutine(RegenStamina());
     }
 
     void Update()
@@ -72,6 +76,7 @@ public class Player : MonoBehaviour
         {
             entity.currentHealth -= 10;
             entity.currentMana -= 5;
+            entity.currentStamina -= 5;
         }
     }
 
@@ -98,41 +103,78 @@ public class Player : MonoBehaviour
         }
     }
 
-    IEnumerator RegenHealth(){
-        while(true){
-            if(regenHPEnable){
-                if(entity.currentHealth < entity.maxHealth){
+    IEnumerator RegenHealth()
+    {
+        while (true)
+        {
+            if (regenHPEnable)
+            {
+                if (entity.currentHealth < entity.maxHealth)
+                {
                     Debug.LogFormat("Regenerando HP...");
                     entity.currentHealth += regenHPValue;
                     yield return new WaitForSeconds(regenHPTime);
                 }
-                else{
+                else
+                {
                     yield return null;
                 }
             }
-            else{
+            else
+            {
                 yield return null;
             }
-            
+
         }
     }
 
-    IEnumerator RegenMana(){
-        while(true){
-            if(regenMPEnable){
-                if(entity.currentMana < entity.maxMana){
+    IEnumerator RegenMana()
+    {
+        while (true)
+        {
+            if (regenMPEnable)
+            {
+                if (entity.currentMana < entity.maxMana)
+                {
                     Debug.LogFormat("Regenerando MP...");
                     entity.currentMana += regenMPValue;
                     yield return new WaitForSeconds(regenMPTime);
                 }
-                else{
+                else
+                {
                     yield return null;
                 }
             }
-            else{
+            else
+            {
                 yield return null;
             }
-            
+
+        }
+    }
+
+    IEnumerator RegenStamina()
+    {
+        while (true)
+        {
+            if (regenSTMEnable)
+            {
+                if (entity.currentStamina < entity.maxStamina)
+                {
+                    Debug.LogFormat("Regenerando STM...");
+                    entity.currentStamina += regenSTMValue;
+                    yield return new WaitForSeconds(regenSTMTime);
+                }
+                else
+                {
+                    yield return null;
+                }
+            }
+            else
+            {
+                yield return null;
+            }
+
         }
     }
 }
