@@ -37,12 +37,12 @@ public class Player : MonoBehaviour
             return;
         }
 
-        entity.maxHealth = manager.CalculateHealth(this);
-        entity.maxMana = manager.CalculateMana(this);
-        entity.maxStamina = manager.CalculateStamina(this);
+        entity.maxHealth = manager.CalculateHealth(this.entity);
+        entity.maxMana = manager.CalculateMana(this.entity);
+        entity.maxStamina = manager.CalculateStamina(this.entity);
 
-        Int32 dmg = manager.CalculateDamage(this, 10); // usado no player
-        Int32 def = manager.CalculateDefence(this, 5); // usado no inimigo
+        Int32 dmg = manager.CalculateDamage(this.entity, 10); // usado no player
+        Int32 def = manager.CalculateDefence(this.entity, 5); // usado no inimigo
 
         entity.currentHealth = entity.maxHealth;
         entity.currentMana = entity.maxMana;
