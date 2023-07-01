@@ -5,11 +5,12 @@ using UnityEngine;
 public class Dialogue : MonoBehaviour
 {
     public Sprite profile;
-    public string speechText;
+    public string[] speechText;
     public string actorName;
     public string playerTag;
     public float radious;
     private DialogueControl dc;
+    bool onRadious;
 
     private void Start()
     {
@@ -21,13 +22,24 @@ public class Dialogue : MonoBehaviour
         Interact();
     }
 
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Space) && onRadious)
+        {
+            dc.Speech(profile, speechText, actorName);
+        }
+    }
     public void Interact()
     {
         Collider2D hit = Physics2D.OverlapCircle(transform.position, radious);
         
         if (hit.CompareTag(playerTag))
             {
-                dc.Speech(profile, speechText, actorName);
+                onRadious = true;
+            }
+            else 
+            {
+                onRadious = false;
             }
     }
 
