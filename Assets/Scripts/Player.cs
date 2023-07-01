@@ -27,7 +27,7 @@ public class Player : MonoBehaviour
     public Slider mana;
     public Slider stamina;
     public Slider exp;
-    public Inventory inventory;
+    public InventoryManager inventory;
 
     void Start()
     {
@@ -72,7 +72,7 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
-        inventory = new Inventory(12);
+        inventory = GetComponent<InventoryManager>();
     }
     public void DropItem(Item item)
     {

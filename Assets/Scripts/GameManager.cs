@@ -7,6 +7,10 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     public ItemManager itemManager;
+    //public TileManager tileManager;
+    public UI_Manager uiManager;
+
+    public Player player;
 
     public Int32 CalculateHealth(EntityController entity)
     {
@@ -63,5 +67,8 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
 
         itemManager = GetComponent<ItemManager>();
+        uiManager = GetComponent<UI_Manager>();
+
+        player = FindAnyObjectByType<Player>();
     }
 }
