@@ -8,7 +8,7 @@ public class Toolbar_UI : MonoBehaviour
 
     private Slot_UI selectSlot;
 
-    private void Star()
+    private void Start()
     {
         SelectSlot(0);
     }
@@ -27,7 +27,18 @@ public class Toolbar_UI : MonoBehaviour
             }
             selectSlot = toolbarSlots[index];
             selectSlot.SetHighlight(true);
+            Debug.Log("Selected Index: " + toolbarSlots.IndexOf(selectSlot));
         }
+    }
+
+    public int GetIndex()
+    {
+        return  toolbarSlots.IndexOf(selectSlot);
+    }
+
+     public string GetItem()
+    {
+        return selectSlot.inventory.slots[selectSlot.slotID].itemName;
     }
     private void CheckAlphaNumericKeys()
     {

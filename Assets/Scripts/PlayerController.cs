@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     float input_x = 0;
     float input_y = 0;
     bool isWalking = false;
+    public Toolbar_UI toolbarUI;
  
     // Start is called before the first frame update
     void Start()
@@ -36,6 +37,22 @@ public class PlayerController : MonoBehaviour
         playerAnimator.SetBool("isWalking", isWalking);
  
         if (Input.GetButtonDown("Fire1"))
+        {
             playerAnimator.SetTrigger("attack");
+        }
+
+        int selectedIndex = toolbarUI.GetIndex();
+        string itemName = toolbarUI.GetItem();
+        if(selectedIndex == 0)
+        {
+            if(itemName == "Ax")
+            {
+                playerAnimator.SetBool("WithAx", true);
+            }
+            else
+            {
+                playerAnimator.SetBool("WithAx", false);
+            }
+        }
     }
 }
