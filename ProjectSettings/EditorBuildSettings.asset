@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/JorgeLands.unity
     guid: 443f52c23d8161448af37831488afdcc
+  - enabled: 1
+    path: Assets/Scenes/End.unity
+    guid: 1f09cc76aa8191f40ac4dce92fda6fd7
   m_configObjects: {}
