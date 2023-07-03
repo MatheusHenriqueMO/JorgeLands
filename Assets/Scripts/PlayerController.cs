@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
 {
     public Player player;
     public Animator playerAnimator;
+    public GameManager manager;
     float input_x = 0;
     float input_y = 0;
     bool isWalking = false;
@@ -35,11 +36,21 @@ public class PlayerController : MonoBehaviour
         }
  
         playerAnimator.SetBool("isWalking", isWalking);
- 
-        if (Input.GetButtonDown("Fire1"))
-        {
-            playerAnimator.SetTrigger("attack");
+        if (player.entity.attackTimer < 0){
+            player.entity.attackTimer = 0;
         }
+        else{
+            player.entity.attackTimer -= Time.deltaTime;
+        }
+        if(player.entity.attackTimer == 0 && !isWalking){
+            if (Input.GetButtonDown("Fire1")){
+                player.entity.attackTimer = player.entity.cooldown;
+                Attack();
+                playerAnimator.SetTrigger("attack");
+            }
+        }
+        
+    
 
         int selectedIndex = toolbarUI.GetIndex();
         string itemName = toolbarUI.GetItem();
@@ -53,6 +64,50 @@ public class PlayerController : MonoBehaviour
             {
                 playerAnimator.SetBool("WithAx", false);
             }
+        }
+    }
+
+    void Attack(){
+        if(player.entity.target == null){
+            return;
+        }
+        MonsterController monster = player.entity.target.GetComponent<MonsterController>();
+        if(monster.entity.dead){
+            player.entity.target = null;
+            return;
+        }
+
+        float distance = Vector2.Distance(transform.position, player.entity.target.transform.position);
+
+        if(distance <= player.entity.attackDistance){
+
+            int dmg = manager.CalculateDamage(player.entity, player.entity.damage);
+            int targetDef = manager.CalculateDefence(monster.entity, monster.entity.defense);
+            int dmgResult = dmg - targetDef;
+
+            if (dmgResult < 0)
+            {
+                dmgResult = 0;
+            }
+
+            Debug.LogFormat("Player atacou, dmg: {0}", dmgResult);
+            monster.entity.currentHealth -= dmgResult;
+            monster.entity.target = this.gameObject;
+        
+        }
+    }
+
+    void OnTriggerStay2D(Collider2D other)
+    {
+        if(other.transform.tag == "Enemy"){
+            player.entity.target = other.transform.gameObject;
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if(other.transform.tag == "Enemy"){
+            player.entity.target = null;
         }
     }
 }

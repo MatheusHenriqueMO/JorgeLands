@@ -29,8 +29,16 @@ public class Player : MonoBehaviour
     public Slider exp;
     public InventoryManager inventory;
 
+    [Header("Respawn")]
+    public float respawnTime = 5f;
+    public GameObject prefab;
+
     void Start()
     {
+        foreach (GameObject obj in GameObject.FindGameObjectsWithTag("gamemanager"))
+        {
+            manager = obj.GetComponent<GameManager>();
+        }
         if (manager == null)
         {
             Debug.LogError("É necessario anexar o game manager ao player");
@@ -64,6 +72,14 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        if(entity.dead){
+            return;
+        }
+        if(entity.currentHealth<=0){
+            Die();
+        }
+
+
         health.value = entity.currentHealth;
         mana.value = entity.currentMana;
         stamina.value = entity.currentStamina;
@@ -166,5 +182,28 @@ public class Player : MonoBehaviour
             }
 
         }
+    }
+
+    void Die(){
+        entity.currentHealth = 0;
+        entity.currentMana = 0;
+        entity.currentStamina = 0;
+        entity.target = null;
+        entity.dead = true;
+        StopAllCoroutines();
+        StartCoroutine(Respawn());
+    }
+
+    IEnumerator Respawn()
+    {
+        GetComponent<PlayerController>().enabled = false;
+        yield return new WaitForSeconds(respawnTime);
+
+        GameObject newPlayer = Instantiate(prefab, transform.position, transform.rotation, null);
+        newPlayer.name = prefab.name;
+        newPlayer.GetComponent<Player>().entity.dead = false;
+        newPlayer.GetComponent<Player>().entity.combatCoroutine = false;
+        newPlayer.GetComponent<PlayerController>().enabled = true;
+        Destroy(this.gameObject);
     }
 }

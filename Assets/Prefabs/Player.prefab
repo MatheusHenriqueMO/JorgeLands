@@ -175,6 +175,7 @@ GameObject:
   - component: {fileID: 7033995047038526860}
   - component: {fileID: 7033995047038526861}
   - component: {fileID: 8392773404935888453}
+  - component: {fileID: 7033995046102185208}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -286,6 +287,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   playerAnimator: {fileID: 7033995047038526851}
+  manager: {fileID: 0}
+  toolbarUI: {fileID: 0}
 --- !u!50 &7033995047038526863
 Rigidbody2D:
   serializedVersion: 4
@@ -382,8 +385,9 @@ MonoBehaviour:
   mana: {fileID: 0}
   stamina: {fileID: 0}
   exp: {fileID: 0}
-  inventory:
-    slots: []
+  inventory: {fileID: 0}
+  respawnTime: 5
+  prefab: {fileID: 7033995047038526850}
 --- !u!70 &8392773404935888453
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -397,9 +401,27 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 2, y: 2}
+  m_Offset: {x: 0.009436975, y: -0.12739702}
+  m_Size: {x: 0.58447546, y: 0.7260275}
   m_Direction: 0
+--- !u!114 &7033995046102185208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7033995047038526850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75df2483326aabf4b87a7d8a5f00b5cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backpack:
+    slots: []
+  backpackSlotCount: 12
+  toolbar:
+    slots: []
+  toolbarSlotCount: 6
 --- !u!1 &7033995047371815854
 GameObject:
   m_ObjectHideFlags: 0
