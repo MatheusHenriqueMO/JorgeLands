@@ -75,13 +75,13 @@ public class Inventory_UI : MonoBehaviour
         UI_Manager.draggedIcon.rectTransform.sizeDelta = new Vector2(50, 50);
         
         MovetoMousePosition(UI_Manager.draggedIcon.gameObject);
-        Debug.Log("Start Drag: " + UI_Manager.draggedSlot.name);
+        Debug.Log("Pegou o item: " + UI_Manager.draggedSlot.name);
     }
 
     public void SlotDrag()
     {
         MovetoMousePosition(UI_Manager.draggedIcon.gameObject);
-        Debug.Log("Dragging: " + UI_Manager.draggedSlot.name);
+        Debug.Log("Arrastando item: " + UI_Manager.draggedSlot.name);
     }
     public void SlotEndDrag()
     {

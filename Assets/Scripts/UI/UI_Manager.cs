@@ -73,7 +73,7 @@ public class UI_Manager : MonoBehaviour
         {
             return inventoryUIByName[inventoryName];
         }
-        Debug.LogWarning("There is not inventory ui for " + inventoryName);
+        Debug.LogWarning("debug: " + inventoryName);
         return null;
     }
 
